@@ -1,0 +1,14 @@
+#container {
+  position: relative;
+}
+
+#descriptionText {
+  position: absolute;
+  top: 10px;
+}
+
+#animationCanvas {
+  position: absolute;
+  top: 50px;
+  border: 1px solid #000000;
+}
