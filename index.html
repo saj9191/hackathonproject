@@ -9,5 +9,18 @@
       <textarea id = "descriptionText">Enter text here!</textarea>
       <canvas id = "animationCanvas"></canvas>
     </div>
+    <script src="js/vector.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/move.js"></script>
+    <script src="js/display.js"></script>
+    <script>
+      var display = display();
+      // For now hardcode a model.
+      var models = [];
+      var link = "http://icons.iconarchive.com/icons/iconka/meow/256/cat-walk-icon.png"
+      var model = new Model("cat", zeroVector, zeroVector, undefined, link);
+      models.push(model);
+      display.updateCanvas(models);
+    </script>
   </body>
 </html>

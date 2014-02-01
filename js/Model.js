@@ -1,4 +1,5 @@
 // Information associated with a model in the animation
+// TODO: Not sure we need action
 function Model(name, position, velocity, action, imageLink) {
   this.name = name;
   // Current position of model
@@ -8,8 +9,9 @@ function Model(name, position, velocity, action, imageLink) {
   // What the object is doing (for now let's make the actions
   // stationary or moving
   this.action = action;
-  // Link to photo for model
-  this.imageLink = imageLink;
+  // Image representing model 
+  this.image = new Image();
+  this.image.src = imageLink;
 }
 
 Model.prototype.getName = function() {
@@ -36,6 +38,6 @@ Model.prototype.getAction = function() {
   return this.action;
 }
 
-Model.prototype.getImageLink = function() {
-  return this.imageLink;
+Model.prototype.getImage = function() {
+  return this.image;
 }
