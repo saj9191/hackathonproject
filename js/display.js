@@ -3,8 +3,8 @@ var display = function() {
 
   var animationCanvas = document.getElementById("animationCanvas");
   var ctx = animationCanvas.getContext("2d");
-  ctx.canvas.width = "500";
-  ctx.canvas.height = "500"; 
+  ctx.canvas.width = "700";
+  ctx.canvas.height = "700"; 
 
   exports.updateCanvas = function(models) {
     ctx.clearRect(0, 0, animationCanvas.width, animationCanvas.height);
