@@ -9,6 +9,7 @@
       <textarea id = "descriptionText">Enter text here!</textarea>
       <canvas id = "animationCanvas"></canvas>
     </div>
+    <script src="js/action.js"></script>
     <script src="js/vector.js"></script>
     <script src="js/model.js"></script>
     <script src="js/display.js"></script>
@@ -17,16 +18,25 @@
       var display = display();
       var move = move();
       var canvas = display.getCanvas();
-      console.log("width ", canvas.width, " height ", canvas.height);
       
       // For now hardcode a model.
       var models = [];
+
+      var radius = 20;
+      console.log("width ", canvas.width, " height ", canvas.height, " radius ", radius);
+      var position = new Vector(canvas.width/2 + radius, canvas.height/2);
+      var center = new Vector(canvas.width/2, canvas.height/2);
+      console.log("position ", position);
+      console.log("center ", center);
+      var velocity = new Vector(10, 0);
+
       var link = "http://icons.iconarchive.com/icons/iconka/meow/256/cat-walk-icon.png"
-      var model1 = new Model(zeroVector, new Vector(20,0), undefined, link);
-      var model2 = new Model(new Vector(canvas.width/2 - 255/2, canvas.height-255), new Vector(0, -20), undefined, link);
-      models.push(model1);
-      models.push(model2);
-      move.step(display, models, 500);
+      var model1 = new Model(position, velocity, center, 0, action.CIRCLE, link);
+     // var model2 = new Model(new Vector(canvas.width/2 - 255/2, canvas.height-255), new Vector(0, -20), undefined, link);
+     models.push(model1);
+     console.log("model position is ", model1.position);
+     // models.push(model2);
+      move.step(display, models, 200);
     </script>
   </body>
 </html>
