@@ -1,7 +1,6 @@
 // Information associated with a model in the animation
 // TODO: Not sure we need action
-function Model(name, position, velocity, action, imageLink) {
-  this.name = name;
+function Model(position, velocity, action, imageLink) {
   // Current position of model
   this.position = position
   // Current velocity of model
@@ -14,16 +13,18 @@ function Model(name, position, velocity, action, imageLink) {
   this.image.src = imageLink;
 }
 
-Model.prototype.getName = function() {
-  return this.name;
-}
-
 Model.prototype.getPosition = function() {
   return this.position;
 }
 
 Model.prototype.setPosition = function(position) {
-  this.position = position
+  this.position = position;
+}
+
+// Updates the position based on the given velocity and change in time
+Model.prototype.stepPosition = function(deltaMilliseconds) {
+  var deltaSeconds = deltaMilliseconds / 1000;
+  this.position = this.position.addVector(this.velocity.multipleByScalar(deltaSeconds));
 }
 
 Model.prototype.getVelocity = function() {
@@ -40,4 +41,12 @@ Model.prototype.getAction = function() {
 
 Model.prototype.getImage = function() {
   return this.image;
+}
+
+Model.prototype.getWidth = function() {
+ return this.image.width;
+}
+
+Model.prototype.getHeight = function() {
+  return this.image.height;
 }

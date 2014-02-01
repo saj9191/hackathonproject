@@ -11,16 +11,18 @@
     </div>
     <script src="js/vector.js"></script>
     <script src="js/model.js"></script>
-    <script src="js/move.js"></script>
     <script src="js/display.js"></script>
+    <script src="js/move.js"></script>
     <script>
       var display = display();
+      var move = move();
+      
       // For now hardcode a model.
       var models = [];
       var link = "http://icons.iconarchive.com/icons/iconka/meow/256/cat-walk-icon.png"
-      var model = new Model("cat", zeroVector, zeroVector, undefined, link);
+      var model = new Model(zeroVector, new Vector(10,0), undefined, link);
       models.push(model);
-      display.updateCanvas(models);
+      move.step(display, models, 500);
     </script>
   </body>
 </html>
